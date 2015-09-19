@@ -36,13 +36,6 @@
             "args": [
               "/tmp/node-provisioning.sh"
             ],
-            "ports": [
-              {
-                "hostPort": 8080,
-                "containerPort": 8080,
-                "protocol": "TCP"
-              }
-            ],
             "env": [
               {
                 "name": "ETCDCTL_PEERS",
@@ -53,7 +46,11 @@
                 "value": "8080"
               }
             ],
-            "resources": {},
+            "resources": {
+              "limits" : {
+                "memory": "200Mi"
+              }
+            },
             "volumeMounts": [
               {
                 "name": "bundles",
