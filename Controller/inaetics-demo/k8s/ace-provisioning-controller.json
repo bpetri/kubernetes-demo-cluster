@@ -25,7 +25,7 @@
           {
             "name": "bundles",
             "hostPath": {
-              "path": "/home/core/bundles"
+              "path": "/home/core/inaetics-demo/node-provisioning/bundles"
             }
           }
         ],
