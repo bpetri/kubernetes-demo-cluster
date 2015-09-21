@@ -44,6 +44,7 @@ Vagrant.configure("2") do |config|
             config.vm.synced_folder "../Controller/images", "/home/core/images"
             config.vm.synced_folder "../Controller/inaetics-demo/images", "/home/core/inaetics-demo/images"
             config.vm.synced_folder "../Controller/inaetics-demo/node-provisioning/bundles", "/home/core/inaetics-demo/node-provisioning/bundles"
+            config.vm.synced_folder "../Controller/configs", "/home/core/configs"
             config.vm.synced_folder "user-data", "/tmp/user-data"
             config.vm.provision :shell, :inline => $provision_script
 

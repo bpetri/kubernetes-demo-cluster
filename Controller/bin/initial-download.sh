@@ -7,7 +7,7 @@ flannel_version=0.5.2
 # get absolute path of this script
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-for NAME in celix-agent felix-agent node-provisioning; do
+for NAME in celix-agent felix-agent node-provisioning elasticsearch kibana; do
 	echo "building and saving $NAME image"
 	docker build -t "inaetics/$NAME:latest" "$DIR/../inaetics-demo/$NAME/"
 	docker save -o "$DIR/../inaetics-demo/images/$NAME.tar" "inaetics/$NAME:latest"
@@ -27,3 +27,9 @@ echo "pulling and saving flannel image"
 flannel_name="quay.io/coreos/flannel:$flannel_version"
 docker pull "$flannel_name"
 docker save -o "$DIR/../images/flannel.tar" "$flannel_name"
+
+echo "pulling and saving logstash image"
+logstash_name="logstash:latest"
+docker pull "$logstash_name"
+docker save -o "$DIR/../images/logstash.tar" "$logstash_name"
+
