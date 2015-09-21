@@ -1,6 +1,6 @@
 #!/bin/bash
 
-k8s_version=v1.0.3
+k8s_version=v1.0.6
 pause_version=0.8.0
 flannel_version=0.5.2
 
