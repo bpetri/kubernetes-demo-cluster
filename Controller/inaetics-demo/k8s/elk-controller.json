@@ -19,9 +19,6 @@
         }
       },
       "spec": {
-        "nodeSelector": {
-          "kubernetes.io/hostname": "172.17.8.20"
-        },
         "volumes": [
           {
             "name": "configs",
@@ -41,7 +38,7 @@
             ],
             "resources": {
               "limits" : {
-                "memory": "400Mi"
+                "memory": "600Mi"
               }
             },
             "volumeMounts": [
@@ -58,7 +55,7 @@
             "image": "inaetics/elasticsearch",
             "resources": {
               "limits" : {
-                "memory": "500Mi"
+                "memory": "600Mi"
               }
             },
             "terminationMessagePath": "/dev/termination-log",
