@@ -12,7 +12,7 @@ $coreos_name="coreos-" + $coreos_channel
 $coreos_version="789.0.0"
 
 $virtualbox_gui = false
-$virtualbox_memory = 1536
+$virtualbox_memory = 1024
 $virtualbox_cpus = 1
 
 # makes all scripts executable & move the cloudinit files to the right place
