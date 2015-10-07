@@ -24,14 +24,12 @@ for NAME in celix-agent felix-agent node-provisioning; do
 	docker save -o "$DIR/../images/controller/$NAME.tar" "$IMAGE"
 done
 
-echo "downloading kubernetes binaries"
-wget -O - "https://storage.googleapis.com/kubernetes-release/release/$k8s_version/kubernetes-server-linux-amd64.tar.gz" | tar -xz -C "$DIR/../opt/bin" --strip=3
-rm "$DIR"/../opt/bin/*.docker_tag
-rm "$DIR"/../opt/bin/*.tar
+# download kubectl
+wget -O "$DIR/../opt/bin/kubectl" "https://storage.googleapis.com/kubernetes-release/release/$k8s_version/bin/linux/amd64/kubectl"
 
 # pull and save 3rd party images
 pullAndSave "gcr.io/google_containers/pause:$pause_version", "$DIR/../images/all/pause.tar"
-#pullAndSave "gcr.io/google_containers/hyperkube:$k8s_version", "$DIR/../images/all/pause.tar"
-#pullAndSave "gcr.io/google_containers/podmaster:$pause_version", "$DIR/../images/controller/pause.tar"
+pullAndSave "gcr.io/google_containers/hyperkube:$k8s_version", "$DIR/../images/all/hyperkube.tar"
+#pullAndSave "gcr.io/google_containers/podmaster:$pause_version", "$DIR/../images/controller/podmaster.tar"
 pullAndSave "quay.io/coreos/flannel:$flannel_version" "$DIR/../images/all/flannel.tar" 
 pullAndSave "registry:$registry_version" "$DIR/../images/controller/registry.tar" 
